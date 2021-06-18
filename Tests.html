@@ -1,0 +1,49 @@
+<head>
+    <title>신학 가치관 측정</title>
+    <link rel="stylesheet" type="text/css" href="credite.css">
+    <meta charset="utf-8">
+</head>
+<body>
+    <h1>
+        다음 질문에 성실하게 답해주세요.
+    </h1>
+    <hr>
+    <h2 style="text-align:center;" id="ques-num"></h2>
+    <p class="question" id="NAME"></p>
+    <hr>
+    <p>
+        <button class="button" id="start" onClick="offer(1.0)">매우 동의</button>
+        <button class="button" id="start" onClick="offer(0.5)">동의</button>
+        <button class="button" id="start" onClick="offer(-0.5)">동의하지 않음</button>
+        <button class="button" id="start" onClick="offer(-1.0)" >매우 동의하지 않음</button>
+        <button class="button" id="start" onClick="offer(0)">모른다</button>
+    </p>
+    <script type="application/javascript" src="script/questions.js"></script>
+    <script>
+        var maxFreedomness;
+        maxFreedomness=50;  //값 최대치, 0이라는 것은 극단적으로 복음주의적이라는 것이다
+        var Freedomness=0;
+        var questionNumber = 16;
+        var page;
+        var end = false;
+        init_question();
+        function init_question() {
+            page = Math.floor(Math.random()*(questions.length));
+            document.getElementById("NAME").innerHTML = questions[page].NAME;
+            document.getElementById("ques-num").innerHTML = "남은 질문 수: " + questions.length;
+        }
+        function offer(inte){
+            if(end==true){
+                document.getElementById("NAME").innerHTML = "결과: " + ((Freedomness+100)/2).toFixed(1);
+                document.getElementById("ques-num").innerHTML = "남은 질문 수: " + 0;
+                return;
+            }
+            Freedomness += inte*questions[page].value;
+            questions.splice(page,1);
+            page = Math.floor(Math.random()*(questions.length));
+            document.getElementById("NAME").innerHTML = questions[page].NAME;
+            document.getElementById("ques-num").innerHTML = "남은 질문 수: " + questions.length;
+            if(questions.length==1){end = true;}
+        }
+    </script>
+</body>

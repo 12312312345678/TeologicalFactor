@@ -1,0 +1,28 @@
+head{
+    background-color: darkviolet;
+    padding: 0px;
+}
+
+body{
+    background-color:gray;
+    border-color:floralwhite;
+    border-left-style: solid;
+    border-right-style: solid;
+    padding: 2px;
+}
+
+h1{
+    text-align: center;
+}
+
+.button{
+    background-color: blue;
+    color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+    font-size: 24px;
+    padding:10px;
+    width:60%;
+    display: block;
+    margin:-2px auto;
+}
