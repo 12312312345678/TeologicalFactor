@@ -18,32 +18,36 @@
         <button class="button" id="start" onClick="offer(-1.0)" >매우 동의하지 않음</button>
         <button class="button" id="start" onClick="offer(0)">모른다</button>
     </p>
-    <script type="application/javascript" src="questions.js"></script>
+    <script type="application/javascript" src="script/questions.js"></script>
     <script>
-        var maxFreedomness;
-        maxFreedomness=50;  //값 최대치, 0이라는 것은 극단적으로 복음주의적이라는 것이다
         var Freedomness=0;
+        var Faithfullness=0;
         var questionNumber = 16;
         var page;
         var end = false;
         init_question();
         function init_question() {
-            page = Math.floor(Math.random()*(questions.length));
+            page = Math.floor(Math.random()*(questions.length)); //첫번째 문제를 뽑는다.
             document.getElementById("NAME").innerHTML = questions[page].NAME;
-            document.getElementById("ques-num").innerHTML = "남은 질문 수: " + questions.length;
+            document.getElementById("ques-num").innerHTML = "남은 질문 수: " + questions.length; //첫번째 문제를 배치한다.
         }
         function offer(inte){
             if(end==true){
-                document.getElementById("NAME").innerHTML = "결과: " + ((Freedomness+100)/2).toFixed(1);
-                document.getElementById("ques-num").innerHTML = "남은 질문 수: " + 0;
+                document.getElementById("NAME").innerHTML = "결과: " + ((Freedomness+100)/2).toFixed(1) + " / " + ((Faithfullness+100)/2).toFixed(1);
+                document.getElementById("ques-num").innerHTML = "설문조사 종료";
                 return;
-            }
-            Freedomness += inte*questions[page].value;
-            questions.splice(page,1);
-            page = Math.floor(Math.random()*(questions.length));
+            } //end변수가 true일때 작동
+            var offerValueFreedomness; // 임시변수 선언
+            var offerValueFaithfulness;
+            offerValueFreedomness=inte*questions[page].FreedomValue;
+            offerValueFaithfulness=inte*questions[page].FaithfulValue;
+            Freedomness += offerValueFreedomness;
+            Faithfullness += offerValueFaithfulness; //선택지 변동치와 가치 점수를 반영
+            questions.splice(page,1); //해당 문제를 전체 문제 중에서 삭제
+            page = Math.floor(Math.random()*(questions.length)); 
             document.getElementById("NAME").innerHTML = questions[page].NAME;
-            document.getElementById("ques-num").innerHTML = "남은 질문 수: " + questions.length;
-            if(questions.length==1){end = true;}
+            document.getElementById("ques-num").innerHTML = "남은 질문 수: " + questions.length; //다음 페이지를 뽑아 표시한다.
+            if(questions.length==1){end = true;} //만약 마지막 문제라면 end변수를 true로 만든다
         }
     </script>
 </body>
