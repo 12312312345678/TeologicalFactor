@@ -33,6 +33,7 @@
         }
         function offer(inte){
             if(end==true){
+                location.href = 'result.html' + "?" + "free=" + ((Freedomness+100)/2).toFixed(1) + "&piet=" + ((Faithfullness+100)/2).toFixed(1);
                 document.getElementById("NAME").innerHTML = "결과: " + ((Freedomness+100)/2).toFixed(1) + " / " + ((Faithfullness+100)/2).toFixed(1);
                 document.getElementById("ques-num").innerHTML = "설문조사 종료";
                 return;
