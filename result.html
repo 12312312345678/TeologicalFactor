@@ -1,0 +1,56 @@
+<head>
+    <title>결과</title>
+    <link rel="stylesheet" type="text/css" href="credite.css">
+    <meta charset="utf-8">
+</head>
+<body>
+    <h1>결과</h1>
+    <hr>
+    <h2>자유주의적 척도</h2>
+    <div class="values">
+        <div class="bar freedomness" id="bfr"></div>
+        <div class="bar postprotesting" id ="bpp"></div>
+    </div>
+    <div class="cents" id="freecent">
+        
+    </div>
+    <hr>
+    <h2>신앙주의적 척도</h2>
+    <div class="values">
+        <div class="bar pietcenterness" id="bpc"></div>
+        <div class="bar reasoncenterness" id ="brc"></div>
+    </div>
+    <div class="cents" id="pietcent">
+        
+    </div>
+    <hr>
+    <script>
+        function getParam(pId){
+            var vals =  location.search.substring(1).split("&");
+            if(pId==1){
+                for (var i=0;i<vals.length;i++){
+                    var vala = vals[i].split("=");
+                    if(vala[0] == "free")return vala[1];
+                }return NaN;
+            }else if(pId==2){
+                for (var i=0;i<vals.length;i++){
+                    var vala = vals[i].split("=");
+                    if(vala[0] == "piet")return vala[1];
+                }return NaN;
+            }else return NaN;
+        }
+        function setBar(id, value){
+            if(id==1){
+                document.getElementById("bfr").style.width = value + "%";
+                document.getElementById("bpp").style.width = (100-value) + "%";
+            }else if(id==2){
+                document.getElementById("bpc").style.width = value + "%";
+                document.getElementById("brc").style.width = (100-value) + "%";
+            }else return;
+        }
+        setBar(1,getParam(1));
+        document.getElementById("freecent").innerHTML = "당신의 자유주의 선호도는 " + getParam(1) + "% 입니다. 자세한 설명은 추후 제공됩니다.";
+        setBar(2,getParam(2));
+        document.getElementById("pietcent").innerHTML = "당신의 경건주의 선호도는" + getParam(2) + "% 입니다. 자세한 설명은 추후 제공됩니다.";
+    </script>
+</body>
