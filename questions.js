@@ -126,8 +126,8 @@ questions = [
     },
     {
         "NAME": "성경에 기록된 기적과 귀신에 대한 기사는 그 때 당시의 사람들의 시대적 상황 속에서 형성된 것이다",
-        "FreedomValue": 0,
-        "FaithfulValue": -10
+        "FreedomValue": 10,
+        "FaithfulValue": 0
     },
     {
         "NAME": "교회의 지도자들은 모두 신앙인으로, 하나님 혹은 절대적인 존재에 대한 경험이 있어야 한다.",
@@ -167,6 +167,11 @@ questions = [
     {
         "NAME": "종교란 당연히 그 이전에 종교를 설교했던 설교자들과 신학자들, 그리고 권세자들로부터 이어져 온 초국가적 기관이다.",
         "FreedomValue": 0,
+        "FaithfulValue": -10
+    },
+    {
+        "NAME": "신학은 교회와 세상을 위한 교의학이다. 교의학을 기반으로 한 가르침이 교회에서 이루어져야 한다.",
+        "FreedomValue": -10,
         "FaithfulValue": -10
     }
 ];
