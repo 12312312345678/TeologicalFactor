@@ -194,20 +194,20 @@ questions = [
 	{
 		"NAME": "초월적인 존재에 대한 이끌림의 감정은 종교를 설명하는데 좋은 아이디어이다.",
 		"FreedomValue": 0,
-		"FaithfulValue": 10
+		"FaithfulValue": 10,
 		"QID": "FN6"
 	},
 	{
 		"NAME": "종교란 당연히 그 이전에 종교를 설교했던 설교자들과 신학자들, 그리고 권세자들로부터 이어져 온 초국가적 기관이다.",
 		"FreedomValue": 0,
-		"FaithfulValue": -10
+		"FaithfulValue": -10,
 		"QID": "FN7"
 	},
 	{
 		"NAME": "하나님을 아는 것은 하나님의 신비, 초월적인 요소를 인간이, 자신이 속한 시간이나 공간인, 인식하는 영역에서 성령의 작용을 통해 일어난다고 볼 수 있다."
 		"FreedomValue": 0,
 		"FaithfulValue": 0,
-		"NeoOrthodoxianValue": -10 
+		"NeoOrthodoxianValue": -10,
 		"QID": "NP1"
 	},
 	{
